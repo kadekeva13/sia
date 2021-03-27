@@ -39,7 +39,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-pembelian')}}" class="nav-link">
                   <i class="fa fa-credit-card"></i>
                   <p>Pembelian</p>
                 </a>

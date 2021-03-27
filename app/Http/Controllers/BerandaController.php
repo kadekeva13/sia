@@ -27,6 +27,10 @@ class BerandaController extends Controller
     {
         return view('supplier.halaman-supplier');
     }
+    public function halamanpembelian()
+    {
+        return view('pembelian.halaman-pembelian');
+    }
 
     /**
      * Show the form for creating a new resource.

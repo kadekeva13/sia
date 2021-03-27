@@ -190,12 +190,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Customer</h1>
+            <h1 class="m-0">Pembelian</h1>
           </div>
           <!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{route('create-customer')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
+              <a href="#" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
           </div>
           <!-- /.col -->
@@ -208,16 +208,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr class="bg-gradient-cyan text-center text-bold">
-        <th>No</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>No.Telp</th>
-        <th>Alamat</th>
-        <th>Gender</th>
+      <tr class="bg-gradient-red text-center text-bold text-white">
+        <th>ID Pembelian</th>
+        <th>ID Supplier</th>
+        <th>ID Keuangan</th>
+        <th>Tanggal Pembelian</th>
+        <th>Nama Pembelian</th>
         <th colspan="2">Action</th>
       </tr>
-      @foreach ($dtCustomer as $item)
+      {{-- @foreach ($dtCustomer as $item)
           <tr class="bg-gradient-white text-center text-bold">
             <td class="bg-light">{{ $item->id }}</td>
             <td class="bg-light">{{ $item->nama }}</td>
@@ -226,13 +225,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <td class="bg-light">{{ $item->alamat }}</td>
             <td class="bg-light">{{ $item->gender }}</td>
             <td>
-              <a href="{{url("customer/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+              <a href="#" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
-              <a href="{{url("customer/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
           </tr>
-      @endforeach    
+      @endforeach     --}}
      </table>
    </div>
     <!-- /.content -->

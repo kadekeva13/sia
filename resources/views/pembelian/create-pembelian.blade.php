@@ -190,7 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Data Customer</h1>
+            <h1 class="m-0">Tambah Pembelian</h1>
           </div>
         </div>
         <!-- /.row -->
@@ -203,30 +203,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <form action="#" method="POST">
         @csrf
             <div class="form-group">
-                <label for="nama">Nama : </label>
+                <label for="nama">Nama Pembelian : </label>
                 <input class="form-control" type="text" name="nama" placeholder="Nama Anda">
             </div>
             <div class="form-group">
-              <label for="email">Email </label>
-              <input class="form-control" type="email" name="email" placeholder="Email Anda">
-            </div>
-            <div class="form-group">
-              <label for="notelp">No Telpon </label>
-              <input class="form-control" type="text" name="notelp" placeholder="No.telpon">
-            </div>
-            .<div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="gender">Gender : </label>
-                <select class="form-control select2" style="width: 100%;"name="gender" id="gender">
-                <option>-- PILIH GENDER --</option>
-                @foreach ($map as $item)
-                <option value="{{$item->id}}">{{$item->gender}}</option>
-                @endforeach
-                </select>
-            </div>
+              <label for="nama">Tanggal Pembelian </label>
+              <input class="form-control" type="text" name="nama" placeholder="Nama Anda">
+          </div>
             <button type="submit" class="btn btn-danger">Simpan</button>
         </form>
    </div>
