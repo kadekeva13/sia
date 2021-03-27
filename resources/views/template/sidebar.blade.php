@@ -16,61 +16,61 @@
               @if (auth()->user()->level=="admin")
               <li class="nav-item">
                 <a href="{{route('halaman-dashboard')}}" class="nav-link active">
-                  <i class="far fa-tachometer-alt nav-icon"></i>
+                  <i class="fa fa-bars"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('halaman-customer')}}" class="nav-link">
-                  <i class="far fa-user nav-icon"></i>
+                  <i class="fa fa-users"></i>
                   <p>Customer</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('halaman-supplier')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-users"></i>
                   <p>Supplier</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-shopping-cart"></i>
                   <p>Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-credit-card"></i>
                   <p>Pembelian</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-database"></i>
                   <p>Inventory</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-credit-card"></i>
                   <p>Keuangan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-balance-scale"></i>
                   <p>Akun</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-address-card"></i>
                   <p>Buku Besar</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-file"></i>
                   <p>Laporan</p>
                 </a>
               </li>

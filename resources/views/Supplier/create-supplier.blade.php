@@ -200,7 +200,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
    <div class="card-body">
-       <form action="{{ url('/store') }}" method="POST">
+       <form action="{{ url('/store-supplier') }}" method="POST">
            @csrf
            <div class="form-group">
                <label for="nama">Nama : </label>

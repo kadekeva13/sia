@@ -44,7 +44,7 @@ class CustomerController extends Controller
     {
         //dd($request->all());
         $this->validate($request, [
-            'email' => 'required|email|unique::customer',
+            'email' => 'required|email|unique:customer',
             'notelp' => 'required|min:6', // field_confirmation
         ]);
         Customer::create([

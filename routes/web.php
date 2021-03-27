@@ -31,14 +31,14 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     //CRUD HALAMAN CUSTOMER
     route::get('/halaman-customer', 'CustomerController@index')->name('halaman-customer');
     route::get('/create-customer', 'CustomerController@create')->name('create-customer');
-    route::post('/store', 'CustomerController@store')->name('simpan-customer');
+    route::post('/store-customer', 'CustomerController@store')->name('simpan-customer');
     route::get('/customer/edit/{id}','CustomerController@edit')->name('edit-customer');
     route::patch('/customer/{id}','CustomerController@update');
     route::get('/customer/delete/{id}','CustomerController@destroy');
     //CRUD HALAMAN SUPPLIER
     route::get('/halaman-supplier', 'SupplierController@index')->name('halaman-supplier');
     route::get('/create-supplier', 'SupplierController@create')->name('create-supplier');
-    route::post('/store', 'SupplierController@store')->name('simpan-supplier');
+    route::post('/store-supplier', 'SupplierController@store')->name('simpan-supplier');
     route::get('/supplier/edit/{id}','SupplierController@edit')->name('edit-supplier');
     route::patch('/supplier/{id}','SupplierController@update');
     route::get('/supplier/delete/{id}','SupplierController@destroy');

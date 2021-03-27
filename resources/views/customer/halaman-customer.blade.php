@@ -208,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr>
+      <tr class="bg-gradient-cyan text-center text-bold">
         <th>No</th>
         <th>Nama</th>
         <th>Email</th>
@@ -218,13 +218,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <th colspan="2">Action</th>
       </tr>
       @foreach ($dtCustomer as $item)
-          <tr>
-            <td>{{ $item->id }}</td>
-            <td>{{ $item->nama }}</td>
-            <td>{{ $item->email }}</td>
-            <td>{{ $item->notelp }}</td>
-            <td>{{ $item->alamat }}</td>
-            <td>{{ $item->gender }}</td>
+          <tr class="bg-gradient-white text-center text-bold">
+            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ $item->nama }}</td>
+            <td class="bg-light">{{ $item->email }}</td>
+            <td class="bg-light">{{ $item->notelp }}</td>
+            <td class="bg-light">{{ $item->alamat }}</td>
+            <td class="bg-light">{{ $item->gender }}</td>
             <td>
               <a href="{{url("customer/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>

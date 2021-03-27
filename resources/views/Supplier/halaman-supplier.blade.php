@@ -208,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr>
+      <tr class="bg-gradient-warning text-center text-black">
         <th>No</th>
         <th>Nama</th>
         <th>Jenis Supplier</th>
@@ -218,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <th colspan="2">Action</th>
       </tr>
       @foreach ($supplier as $item)
-          <tr>
+          <tr class="bg-gradient-light text-center text-bold">
             <td>{{ $item->id }}</td>
             <td>{{ $item->nama }}</td>
             <td>{{ $item->jenis_supplier }}</td>
