@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Penjualan;
 
-class BerandaController extends Controller
+class PenjualanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,27 +14,8 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.beranda');
-    }
-    public function halamandashboard()
-    {
-        return view('halaman.halaman-dashboard');
-    }
-    public function halamancustomer()
-    {
-        return view('customer.halaman-customer');
-    }
-    public function halamansupplier()
-    {
-        return view('supplier.halaman-supplier');
-    }
-    public function halamanpembelian()
-    {
-        return view('pembelian.halaman-pembelian');
-    }
-    public function halamanpenjualan()
-    {
-        return view('penjualan.halaman-penjualan');
+        $dtPenjualan = Penjualan::all();
+        return view('penjualan.halaman-penjualan', compact('dtPenjualan'));
     }
 
     /**

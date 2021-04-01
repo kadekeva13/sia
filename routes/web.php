@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/supplier/edit/{id}','SupplierController@edit')->name('edit-supplier');
     route::patch('/supplier/{id}','SupplierController@update');
     route::get('/supplier/delete/{id}','SupplierController@destroy');
+    //CRUD HALAMAN PENJUALAN
+    route::get('/halaman-penjualan', 'PenjualanController@index')->name('halaman-penjualan');
     //CRUD HALAMAN PEMBELIAN
     route::get('/halaman-pembelian', 'BerandaController@halamanpembelian')->name('halaman-pembelian');
 });
