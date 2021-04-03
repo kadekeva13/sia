@@ -10,3 +10,4 @@ class Penjualan extends Model
     protected $fillable = ['id','id_customer','id_keuangan','nama_penjualan','tgl_penjualan'];
     protected $primaryKey ='id';
 }
+

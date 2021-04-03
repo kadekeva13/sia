@@ -200,7 +200,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
    <div class="card-body">
-    <form action="#" method="POST">
+    <form action="{{ url("/penjualan/$dtPenjualan->id") }}" method="POST">
         @method('PATCH')
         @csrf
             <div class="form-group">
@@ -211,15 +211,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <label for="detail">Tanggal Penjualan </label>
                 <input class="form-control" type="date" name="detail" placeholder="Detail">
               </div>
-            {{-- <div class="form-group">
-                <label for="jenis_supplier">Jenis Supplier : </label>
-                <select class="form-control select2" style="width: 100%;"name="jenis_supplier" id="jenis_supplier">
-                <option disabled value>-- PILIH JENIS SUPPLIER --</option>
-                @foreach ($map as $item)
-                <option value="{{$item->id}}">{{$item->jenis_supplier}}</option>
-                @endforeach
-                </select>
-            </div> --}}
             <button type="submit" class="btn btn-success">Ubah Data</button>
         </form>
    </div>

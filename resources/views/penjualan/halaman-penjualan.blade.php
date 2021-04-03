@@ -193,11 +193,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <h1 class="m-0">Penjualan</h1>
           </div>
           <!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <a href="#" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
-            </ol>
-          </div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+                 Tambah Data
+          </button>
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -224,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <td class="bg-light">{{ $item->tgl_penjualan }}</td>
             <td class="bg-light">{{ $item->nama_penjualan }}</td>
             <td>
-              <a href="#" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+              <a href="{{url("penjualan/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
               <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -233,10 +232,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
       @endforeach    
      </table>
    </div>
+   <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penjualan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('/store-penjualan')}}" method="POST">
+          {{ csrf_field() }}
+              <div class="form-group">
+                  <label for="nama">Nama Penjualan : </label>
+                  <input class="form-control" type="text" name="nama_penjualan" placeholder="Nama Penjualan">
+              </div>
+              <div class="form-group">
+                <label for="nama">Tanggal Penjualan </label>
+                <input class="form-control" type="date" name="tgl_penjualan">
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

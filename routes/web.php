@@ -44,6 +44,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/supplier/delete/{id}','SupplierController@destroy');
     //CRUD HALAMAN PENJUALAN
     route::get('/halaman-penjualan', 'PenjualanController@index')->name('halaman-penjualan');
+    route::get('/create-penjualan', 'PenjualanController@create')->name('create-penjualan');
+    route::post('/store-penjualan', 'PenjualanController@store')->name('simpan-penjualan');
+    route::get('/penjualan/edit/{id}','PenjualanController@edit')->name('edit-supplier');
     //CRUD HALAMAN PEMBELIAN
     route::get('/halaman-pembelian', 'BerandaController@halamanpembelian')->name('halaman-pembelian');
 });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Penjualan;
-
+use Illuminate\Support\Facades\DB;
 class PenjualanController extends Controller
 {
     /**
@@ -14,7 +14,12 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        $dtPenjualan = Penjualan::all();
+        //SELECT penjualan.id, penjualan.id_customer, penjualan.id_keuangan FROM customer INNER JOIN penjualan ON penjualan.id_customer = customer.id INNER JOIN keuangan ON penjualan.id_keuangan = keuangan.id
+        $dtPenjualan = DB::table('penjualan')
+            ->join('customer', 'penjualan.id_customer', '=', 'customer.id')
+            ->join('keuangan', 'penjualan.id_keuangan', '=', 'keuangan.id')
+            ->select('penjualan.*', 'customer.id', 'keuangan.id')
+            ->get();
         return view('penjualan.halaman-penjualan', compact('dtPenjualan'));
     }
 
@@ -25,7 +30,8 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
+        \App\Penjualan::create($request->all());
+        return redirect('penjualan.halaman-penjualan');
     }
 
     /**
@@ -36,7 +42,11 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Penjualan::create([
+            'nama_penjualan' => $request->nama_penjualan,
+            'tgl_penjualan' => $request->tgl_penjualan,
+        ]);
+        return redirect('halaman-penjualan');
     }
 
     /**
