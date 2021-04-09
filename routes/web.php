@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     //Halaman Profile
     route::get('/halaman-profile', 'UserController@index')->name('halaman-profile');
     route::get('/edit-profile', 'UserController@editprofile')->name('edit-profile');
+    //Halaman Pengaturan
+    route::get('password', 'PasswordController@edit')->name('password.edit');
+    route::patch('password', 'PasswordController@update')->name('password.update');
     //CRUD HALAMAN CUSTOMER
     route::get('/halaman-customer', 'CustomerController@index')->name('halaman-customer');
     route::get('/create-customer', 'CustomerController@create')->name('create-customer');
@@ -52,6 +55,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/penjualan/edit/{id}','PenjualanController@edit')->name('edit-supplier');
     //CRUD HALAMAN PEMBELIAN
     route::get('/halaman-pembelian', 'BerandaController@halamanpembelian')->name('halaman-pembelian');
+    //CRUD HALAMAN INVENTORY
+    route::get('/halaman-inventory', 'BerandaController@halamaninventory')->name('halaman-inventory');
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/beranda','BerandaController@index');

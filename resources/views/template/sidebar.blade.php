@@ -45,16 +45,33 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-inventory')}}" class="nav-link">
                   <i class="fa fa-database"></i>
                   <p>Inventory</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-credit-card"></i>
-                  <p>Keuangan</p>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-university"></i>
+                  <p>
+                    Keuangan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Pengeluaran</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Pemasukkan</p>
+                  </a>
+                </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -75,7 +92,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('password.edit')}}" class="nav-link">
                   <i class="fa fa-cog"></i>
                   <p>Pengaturan</p>
                 </a>

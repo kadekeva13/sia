@@ -39,6 +39,10 @@ class BerandaController extends Controller
     {
         return view('profil.halaman-profile');
     }
+    public function halamaninventory()
+    {
+        return view('inventory.halaman-inventory');
+    }
 
     /**
      * Show the form for creating a new resource.

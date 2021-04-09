@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
+      {{-- <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -178,13 +178,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
-      <!-- Sidebar Menu -->
       @include('template.sidebar')
-    <!-- /.sidebar -->
-  </aside>
-
+  
+  <!-- /.content-wrapper -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -192,82 +190,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
+            <h1 class="m-0">Inventory</h1>
+          </div>
+          <!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <a href="#" class="btn btn-success">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+   <div class="card-body">
+     <table class="table table-bordered">
+      <tr class="bg-gradient-warning text-center text-black">
+        <th>No</th>
+        <th>ID Pembelian</th>
+        <th>Jenis Inventory</th>
+        <th>Detail</th>
+        <th colspan="2">Action</th>
+      </tr>
+      {{-- @foreach ($supplier as $item)
+          <tr class="bg-gradient-light text-center text-bold">
+            <td>{{ $item->id }}</td>
+            <td>{{ $item->nama }}</td>
+            <td>{{ $item->jenis_supplier }}</td>
+            <td>{{ $item->alamat }}</td>
+            <td>{{ $item->no_telp }}</td>
+            <td>{{ $item->detail }}</td>
+            <td>
+              <a href="{{url("supplier/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+          </td>
+          <td>
+              <a href="{{url("supplier/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </td>
+          </tr>
+      @endforeach     --}}
+     </table>
+   </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -280,7 +245,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <p>Sidebar content</p>
     </div>
   </aside>
-  <!-- /.control-sidebar -->
+  <!-- /.control-sidebar --> --}}
 
   <!-- Main Footer -->
   <footer class="main-footer">
