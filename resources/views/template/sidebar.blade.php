@@ -74,6 +74,12 @@
                   <p>Laporan</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-cog"></i>
+                  <p>Pengaturan</p>
+                </a>
+              </li>
               @endif
             </ul>
           </li>

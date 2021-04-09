@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/beranda','BerandaController@index')->name('beranda');
     //Halaman Dashboard
     route::get('/halaman-dashboard', 'BerandaController@halamandashboard')->name('halaman-dashboard');
+    //Halaman Profile
+    route::get('/halaman-profile', 'UserController@index')->name('halaman-profile');
+    route::get('/edit-profile', 'UserController@editprofile')->name('edit-profile');
     //CRUD HALAMAN CUSTOMER
     route::get('/halaman-customer', 'CustomerController@index')->name('halaman-customer');
     route::get('/create-customer', 'CustomerController@create')->name('create-customer');

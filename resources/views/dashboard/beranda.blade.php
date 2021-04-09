@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->user()->name}}</a>
+          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -214,13 +214,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-penjualan')}}" class="nav-link">
                   <i class="fa fa-shopping-cart"></i>
                   <p>Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-pembelian')}}" class="nav-link">
                   <i class="fa fa-credit-card"></i>
                   <p>Pembelian</p>
                 </a>
@@ -253,6 +253,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="#" class="nav-link">
                   <i class="fa fa-file"></i>
                   <p>Laporan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-cog"></i>
+                  <p>Pengaturan</p>
                 </a>
               </li>
               @endif

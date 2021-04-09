@@ -1,3 +1,4 @@
+{{-- @section('content') --}}
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -164,61 +165,82 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image" height="100%" weight="100%">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
-
-      {{-- <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> --}}
-
       @include('template.sidebar')
-  
-  <!-- /.content-wrapper -->
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Tambah Pembelian</h1>
-          </div>
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+
+{{-- <div class="form-group row">
+    <label for="current_password" class="col-md-4 col-form-label text-md-right">{{ __('Current Password') }}</label>
+    <div class="col-md-6">
+        <input id="current_password" type="password" class="form-control
+        @error('current_password') is-invalid
+        @enderror" name="current_password" required autocomplete="current_password">
+
+        @error('current_password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
-    <!-- /.content-header -->
+</div> --}}
 
-    <!-- Main content -->
-   <div class="card-body">
-    <form action="#" method="POST">
-        @csrf
-            <div class="form-group">
-                <label for="nama">Nama Pembelian : </label>
-                <input class="form-control" type="text" name="nama" placeholder="Nama Anda">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Update Password
+                </div>
+
+                <div class="card-body">
+                  @if(session('succes'))
+                  <div class="alert alert-succes" role="alert">
+                    {{ session('succes')}}
+                  </div>
+                  @endif
+                    <form method="POST" action="{{route('password.edit') }}">
+                        @method('patch')
+                        @csrf
+                        <div class="form-group row">
+                            <label for="old_password" class="col-md-4 col-form-label text-md-right">{{ __('Password Lama') }}</label>
+                            <div class="col-md-6">
+                                <input id="old_password" type="password" name="old_password" class="form-controll">
+                                @error('old_password') 
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right"> {{ __('Password Baru') }}</label>
+                            <div class="col-md-6">
+                                <input id="password" type="password"  name="password" class="form-control">
+                                @error('password') 
+                                <div class="text-danger mt-2">{{ $message }}</div>
+            
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="password" class="col-md-4 col-form-label text-md-right"> {{ __('Konfirmasi Password Baru') }}</label>
+                          <div class="col-md-6">
+                              <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" >
+                          </div>
+                      </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary center">Update Password</button>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="nama">Tanggal Pembelian </label>
-              <input class="form-control" type="text" name="nama" placeholder="Nama Anda">
-          </div>
-            <button type="submit" class="btn btn-danger">Simpan</button>
-        </form>
-   </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+        </div>
+</div>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Title</h5>
@@ -250,3 +272,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </body>
 </html>
 
+{{-- @endsection --}}
