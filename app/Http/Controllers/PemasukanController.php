@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pemasukan;
 
-class BerandaController extends Controller
+class PemasukanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,44 +14,10 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.beranda');
+        $dtPemasukan = Pemasukan::all();
+        return view('pemasukan.halaman-pemasukan', compact('dtPemasukan'));
     }
-    public function halamandashboard()
-    {
-        return view('halaman.halaman-dashboard');
-    }
-    public function halamancustomer()
-    {
-        return view('customer.halaman-customer');
-    }
-    public function halamansupplier()
-    {
-        return view('supplier.halaman-supplier');
-    }
-    public function halamanpembelian()
-    {
-        return view('pembelian.halaman-pembelian');
-    }
-    public function halamanpenjualan()
-    {
-        return view('penjualan.halaman-penjualan');
-    }
-    public function halamanprofile()
-    {
-        return view('profil.halaman-profile');
-    }
-    public function halamaninventory()
-    {
-        return view('inventory.halaman-inventory');
-    }
-    public function halamanpemasukan()
-    {
-        return view('pemasukan.halaman-pemasukan');
-    }
-    public function halamanpengeluaran()
-    {
-        return view('pengeluaran.halaman-pengeluaran');
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +25,7 @@ class BerandaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pemasukan.create-pemasukan');
     }
 
     /**
@@ -69,7 +36,15 @@ class BerandaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        Pemasukan::create([
+            'tgl_pemasukan'=>$request->tgl_pemasukan,
+            'jenis_pemasukan'=>$request->jenis_pemasukan,
+            'detail_pemasukan'=>$request->detail_pemasukan,
+            'jumlah_pemasukan'=>$request->jumlah_pemasukan,
+            // 'total'=>$request->total,
+        ]);
+        return redirect('halaman-pemasukan');
     }
 
     /**
@@ -91,7 +66,8 @@ class BerandaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pem = Pemasukan::find($id);
+        return view('pemasukan.edit-pemasukan', compact('pem'));
     }
 
     /**
@@ -103,7 +79,14 @@ class BerandaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pem = Pemasukan::find($id);
+        $pem->tgl_pemasukan = $request->input('tgl_pemasukan');
+        $pem->jenis_pemasukan = $request->input('jenis_pemasukan');
+        $pem->detail_pemasukan = $request->input('detail_pemasukan');
+        $pem->jumlah_pemasukan = $request->input('jumlah_pemasukan');
+        // $pem->gender = $request->input('gender');
+        $pem->save();
+        return redirect('halaman-pemasukan');
     }
 
     /**
@@ -114,6 +97,7 @@ class BerandaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pemasukan::destroy($id);
+        return redirect('halaman-pemasukan');
     }
 }

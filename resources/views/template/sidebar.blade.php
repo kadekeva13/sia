@@ -60,15 +60,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('halaman-pemasukan')}}" class="nav-link">
                     <i class="fa fa-credit-card"></i>
-                    <p>Pengeluaran</p>
+                    <p>Pemasukkan</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('halaman-pengeluaran')}}" class="nav-link">
                     <i class="fa fa-credit-card"></i>
-                    <p>Pemasukkan</p>
+                    <p>Pengeluaran</p>
                   </a>
                 </li>
                 </ul>

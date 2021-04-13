@@ -161,14 +161,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image" height="100%" weight="100%">
         </div>
         <div class="info">
           <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
+      {{-- <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -178,13 +178,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
-      <!-- Sidebar Menu -->
       @include('template.sidebar')
-    <!-- /.sidebar -->
-  </aside>
-
+  
+  <!-- /.content-wrapper -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -192,33 +190,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">MENU</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+            <h1 class="m-0">Edit Data Pemasukan</h1>
+          </div>
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="col-sm-2">
-      <div class="card bg-primary">
-        <div class="card-header">
-          <h3 class="card-title">Customer</h3>
-        </div>
-        <div class="card-body">
-          hehe
-        </div>
-        <div class="card-footer">
-         hhehe
-        </div>
-      </div>
-    </div>
+   <div class="card-body">
+    <form action="#" method="POST">
+        @method('PATCH')
+        @csrf
+            <div class="form-group">
+                <label for="tgl_pemasukan">Tanggal </label>
+                <input class="form-control" type="date" name="tgl_pemasukan" value="{{ $pem->tgl_pemasukan }}">
+            </div>
+            {{-- <div class="form-group">
+              <label for="jenis_pemasukan">Jenis Pemasukan </label>
+              <select class="form-control select2" style="width: 100%;"name="jenis_pemasukan" id="jenis_pemasukan">
+              <option>-- Jenis Pemasukan --</option>
+              {{-- @foreach ($map as $item)
+              <option value="{{$item->id}}">{{$item->gender}}</option>
+              @endforeach --}}
+            <div class="form-group">
+                <label for="jenis_pemasukan">Jenis Pengeluaran</label>
+                <input class="form-control" type="text" name="jenis_pemasukan" placeholder="Jenis Pemasukan" value="{{ $pem->jenis_pemasukan }}">
+            </div>
+            <div class="form-group">
+              <label for="detail_pemasukan">Detail Pengeluaran </label>
+              <input class="form-control" type="text" name="detail_pemasukan" placeholder="Detail Pemasukan" value="{{ $pem->detail_pemasukan }}">
+            </div>
+            <div class="form-group">
+              <label for="jumlah_pemasukan">Jumlah Pengeluaran</label>
+              <input class="form-control" type="text" name="jumlah_pemasukan" placeholder="Jumlah Pemasukan" value="{{ $pem->jumlah_pemasukan }}">
+            </div>
+            <button type="submit" class="btn btn-danger">Simpan</button>
+        </form>
+   </div>
+    <!-- /.content -->
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -229,7 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <p>Sidebar content</p>
     </div>
   </aside>
-  <!-- /.control-sidebar -->
+  <!-- /.control-sidebar --> --}}
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -253,3 +265,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
+

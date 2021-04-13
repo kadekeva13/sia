@@ -57,6 +57,17 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/halaman-pembelian', 'BerandaController@halamanpembelian')->name('halaman-pembelian');
     //CRUD HALAMAN INVENTORY
     route::get('/halaman-inventory', 'BerandaController@halamaninventory')->name('halaman-inventory');
+    //CRUD HALAMAN PEMASUKAN
+    route::get('/halaman-pemasukan', 'PemasukanController@index')->name('halaman-pemasukan');
+    route::get('/create-pemasukan', 'PemasukanController@create')->name('create-pemasukan');
+    route::post('/store-pemasukan', 'PemasukanController@store')->name('simpan-pemasukan');
+    route::get('/pemasukan/edit/{id}','PemasukanController@edit')->name('edit-pemasukan');
+    route::patch('/pemasukan/{id}','PemasukanController@update');
+    //CRUD HALAMAN PENGELUARAN 
+    route::get('/halaman-pengeluaran', 'PengeluaranController@index')->name('halaman-pengeluaran');
+    route::get('/create-pengeluaran', 'PengeluaranController@create')->name('create-pengeluaran');
+    route::post('/store-pengeluaran', 'PengeluaranController@store')->name('simpan-pengeluaran');
+
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/beranda','BerandaController@index');

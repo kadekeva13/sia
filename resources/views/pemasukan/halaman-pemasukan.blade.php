@@ -168,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
+      {{-- <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -178,13 +178,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
-      <!-- Sidebar Menu -->
       @include('template.sidebar')
-    <!-- /.sidebar -->
-  </aside>
-
+  
+  <!-- /.content-wrapper -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -192,33 +190,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
+            <h1 class="m-0">Pemasukkan</h1>
+          </div>
+          <!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">MENU</li>
+              <a href="{{route('create-pemasukan')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="col-sm-2">
-      <div class="card bg-primary">
-        <div class="card-header">
-          <h3 class="card-title">Customer</h3>
-        </div>
-        <div class="card-body">
-          hehe
-        </div>
-        <div class="card-footer">
-         hhehe
-        </div>
-      </div>
-    </div>
+   <div class="card-body">
+     <table class="table table-bordered">
+      <tr class="bg-gradient-purple text-center text-bold">
+        <th>No</th>
+        <th>Tanggal</th>
+        <th>Jenis Pemasukkan</th>
+        <th>Detail Pemasukkan</th>
+        <th>Jumlah Pemasukan</th>
+        <th>Total</th>
+        <th colspan="2">Action</th>
+      </tr>
+      @foreach ($dtPemasukan as $item)
+          <tr class="bg-gradient-white text-center text-bold">
+            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ $item->tgl_pemasukan }}</td>
+            <td class="bg-light">{{ $item->jenis_pemasukan }}</td>
+            <td class="bg-light">{{ $item->detail_pemasukan }}</td>
+            <td class="bg-light">{{ $item->jumlah_pemasukan }}</td>
+            {{-- <td class="bg-light">{{ $item->total }}</td> --}}
+            <td>
+              <a href="{{url("pemasukan/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+          </td>
+          <td>
+              <a href="{{url("pemasukan/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </td>
+          </tr>
+      @endforeach    
+     </table>
+   </div>
+    <!-- /.content -->
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -229,7 +247,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <p>Sidebar content</p>
     </div>
   </aside>
-  <!-- /.control-sidebar -->
+  <!-- /.control-sidebar --> --}}
 
   <!-- Main Footer -->
   <footer class="main-footer">
