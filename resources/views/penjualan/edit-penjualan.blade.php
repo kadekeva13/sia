@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image" height="100%" weight="100%">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -203,14 +203,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <form action="{{ url("/penjualan/$dtPenjualan->id") }}" method="POST">
         @method('PATCH')
         @csrf
-            <div class="form-group">
-                <label for="nama">Nama : </label>
-                <input class="form-control" type="text" name="nama" placeholder="Nama Anda" >
-            </div>
-            <div class="form-group">
-                <label for="detail">Tanggal Penjualan </label>
-                <input class="form-control" type="date" name="detail" placeholder="Detail">
-              </div>
+        <div>
+          <label for="id_customer">Id Customer </label>
+          <select class="form-control select2" style="width: 100%;"name="id_customer" id="id_customer">
+          <option>-- PILIH ID --</option>
+          @foreach ($customer as $item)
+          <option value="{{$item->id}}">{{$item->nama}}</option>
+          @endforeach
+          </select>
+      </div>
+        <div>
+          <label for="id_keuangan">Id Keuangan </label>
+          <select class="form-control select2" style="width: 100%;"name="id_keuangan" id="id_keuangan">
+          <option>-- PILIH ID --</option>
+          @foreach ($keuangan as $item)
+          <option value="{{$item->id}}">{{$item->jenis_keuangan}}</option>
+          @endforeach
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="notelp">Nama Penjualan </label>
+        <input class="form-control" type="text" name="nama_penjualan" placeholder="nama" value="{{$dtPenjualan->nama_penjualan}}">
+      </div>
+      <div class="form-group">
+        <label for="notelp">Tanggal Penjualan </label>
+        <input class="form-control" type="date" name="tgl_penjualan" placeholder="tgl_penjualan" value="{{$dtPenjualan->tgl_penjualan}}">
+      </div>
             <button type="submit" class="btn btn-success">Ubah Data</button>
         </form>
    </div>
@@ -250,4 +268,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
-

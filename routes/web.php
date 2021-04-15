@@ -50,11 +50,16 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/supplier/delete/{id}','SupplierController@destroy');
     //CRUD HALAMAN PENJUALAN
     route::get('/halaman-penjualan', 'PenjualanController@index')->name('halaman-penjualan');
-    route::get('/create-penjualan', 'PenjualanController@create')->name('create-penjualan');
     route::post('/store-penjualan', 'PenjualanController@store')->name('simpan-penjualan');
-    route::get('/penjualan/edit/{id}','PenjualanController@edit')->name('edit-supplier');
+    route::get('/penjualan/edit/{id}','PenjualanController@edit')->name('edit-penjualan');
+    route::patch('/penjualan/{id}','PenjualanController@update');
+    route::get('/penjualan/delete/{id}','PenjualanController@destroy');
     //CRUD HALAMAN PEMBELIAN
-    route::get('/halaman-pembelian', 'BerandaController@halamanpembelian')->name('halaman-pembelian');
+    route::get('/halaman-pembelian','PembelianController@index')->name('halaman-pembelian');
+    route::post('/store-pembelian', 'PembelianController@store')->name('simpan-pembelian');
+    route::get('/pembelian/edit/{id}','PembelianController@edit')->name('edit-pembelian');
+    route::patch('/pembelian/{id}','PembelianController@update');
+    route::get('/pembelian/delete/{id}','PembelianController@destroy');
     //CRUD HALAMAN INVENTORY
     route::get('/halaman-inventory', 'BerandaController@halamaninventory')->name('halaman-inventory');
     //CRUD HALAMAN PEMASUKAN

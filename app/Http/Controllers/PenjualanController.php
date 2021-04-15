@@ -15,12 +15,17 @@ class PenjualanController extends Controller
     public function index()
     {
         //SELECT penjualan.id, penjualan.id_customer, penjualan.id_keuangan FROM customer INNER JOIN penjualan ON penjualan.id_customer = customer.id INNER JOIN keuangan ON penjualan.id_keuangan = keuangan.id
+        $customer = DB::table('customer')->get(); // cara ngambil data pada tabel customer dari database .
+        $keuangan = DB::table('keuangan')->get();
         $dtPenjualan = DB::table('penjualan')
             ->join('customer', 'penjualan.id_customer', '=', 'customer.id')
             ->join('keuangan', 'penjualan.id_keuangan', '=', 'keuangan.id')
-            ->select('penjualan.*', 'customer.id', 'keuangan.id')
+            ->select('penjualan.*', 'customer.id AS custid', 'keuangan.id AS keuid')
             ->get();
-        return view('penjualan.halaman-penjualan', compact('dtPenjualan'));
+            // dd($keuangan);
+            // dd($dtPenjualan);
+        return view('penjualan.halaman-penjualan', compact('dtPenjualan','customer','keuangan'));
+
     }
 
     /**
@@ -30,8 +35,10 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        \App\Penjualan::create($request->all());
-        return redirect('penjualan.halaman-penjualan');
+        $map = penjualan::all();
+        return view('penjualan.halaman-penjualan', compact('map'));
+        // \App\Penjualan::create($request->all());
+        // return redirect('penjualan.halaman-penjualan');
     }
 
     /**
@@ -43,6 +50,9 @@ class PenjualanController extends Controller
     public function store(Request $request)
     {
         Penjualan::create([
+            'id' => $request->id,
+            'id_customer' => $request->id_customer,
+            'id_keuangan' => $request->id_keuangan,
             'nama_penjualan' => $request->nama_penjualan,
             'tgl_penjualan' => $request->tgl_penjualan,
         ]);
@@ -68,7 +78,20 @@ class PenjualanController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $customer = DB::table('customer')->get(); // cara ngambil data pada tabel customer dari database .
+        $keuangan = DB::table('keuangan')->get();
+        $dtPenjualan = DB::table('penjualan')
+            ->join('customer', 'penjualan.id_customer', '=', 'customer.id')
+            ->join('keuangan', 'penjualan.id_keuangan', '=', 'keuangan.id')
+            ->select('penjualan.*')
+            ->where('penjualan.id','=',$id)->first();
+        // dd($dtPenjualan);
+        return view('penjualan.edit-penjualan', compact('dtPenjualan','customer','keuangan'));
+        // $map = penjualan::all();
+        // $customer = penjualan::with('customer')->find($id);
+        // $keuangan = penjualan::with('keuangan')->find($id);
+        // return view('penjualan.edit-penjualan',compact('customer', 'map', 'keuangan'));
     }
 
     /**
@@ -80,7 +103,14 @@ class PenjualanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    
+        $dtpenjualan = Penjualan::find($id);
+        $dtpenjualan->id_customer = $request->input('id_customer');
+        $dtpenjualan->id_keuangan = $request->input('id_keuangan');
+        $dtpenjualan->nama_penjualan = $request->input('nama_penjualan');
+        $dtpenjualan->tgl_penjualan = $request->input('tgl_penjualan');
+        $dtpenjualan->save();
+        return redirect('halaman-penjualan');
     }
 
     /**
@@ -91,6 +121,8 @@ class PenjualanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Penjualan::destroy($id);
+        return redirect('halaman-penjualan');
     }
 }
+

@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -208,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <div class="card-body">
      <table class="table table-bordered">
       <tr class="bg-gradient-blue text-center text-bold text-white">
-        <th>ID Pembelian</th>
+        <th>ID Penjualan</th>
         <th>ID Customer</th>
         <th>ID Keuangan</th>
         <th>Tanggal Penjualan</th>
@@ -226,7 +226,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="{{url("penjualan/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
-              <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              <a href="{{url("penjualan/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
           </tr>
       @endforeach    
@@ -245,12 +245,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="modal-body">
         <form action="{{url('/store-penjualan')}}" method="POST">
           {{ csrf_field() }}
-              <div class="form-group">
-                  <label for="nama">Nama Penjualan : </label>
-                  <input class="form-control" type="text" name="nama_penjualan" placeholder="Nama Penjualan">
-              </div>
-              <div class="form-group">
-                <label for="nama">Tanggal Penjualan </label>
+          <div>
+            <label for="id_customer">Id Customer </label>
+            <select class="form-control select2" style="width: 100%;"name="id_customer" id="id_customer">
+            <option>-- PILIH ID --</option>
+            @foreach ($customer as $item)
+            <option value="{{$item->id}}">{{$item->nama}}</option>
+            @endforeach
+            </select>
+        </div>
+          <div>
+            <label for="id_keuangan">Id Keuangan </label>
+            <select class="form-control select2" style="width: 100%;"name="id_keuangan" id="id_keuangan">
+            <option>-- PILIH ID --</option>
+            @foreach ($keuangan as $item)
+            <option value="{{$item->id}}">{{$item->jenis_keuangan}}</option>
+            @endforeach
+            </select>
+        </div>
+            <div class="form-group">
+              <label for="nama_penjualan">Nama Penjualan : </label>
+              <input class="form-control" type="text" name="nama_penjualan">
+          </div>
+              <div class="form-group"> 
+                <label for="tgl_penjualan">Tanggal Penjualan </label>
                 <input class="form-control" type="date" name="tgl_penjualan">
             </div>
             </div>
@@ -297,3 +315,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
+

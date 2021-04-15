@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image" height="100%" weight="100%">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -190,7 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Data Customer</h1>
+            <h1 class="m-0">Edit Data Pembelian</h1>
           </div>
         </div>
         <!-- /.row -->
@@ -200,34 +200,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
    <div class="card-body">
-    <form action="#" method="POST">
+    <form action="{{ url("/pembelian/$dtPembelian->id") }}" method="POST">
         @method('PATCH')
         @csrf
-            <div class="form-group">
-                <label for="nama">Nama : </label>
-                <input class="form-control" type="text" name="nama" placeholder="Nama Anda" value="{{$supplier->nama}}">
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input class="form-control" type="text" name="alamat" placeholder="Alamat" value="{{$supplier->alamat}}">
-            </div>
-            <div class="form-group">
-              <label for="no_telp">No Telpon </label>
-              <input class="form-control" type="text" name="no_telp" placeholder="No.telpon" value="{{$supplier->no_telp}}">
-            </div>
-            <div class="form-group">
-                <label for="detail">Detail </label>
-                <input class="form-control" type="text" name="detail" placeholder="Detail" value="{{$supplier->detail}}">
-              </div>
-            {{-- <div class="form-group">
-                <label for="jenis_supplier">Jenis Supplier : </label>
-                <select class="form-control select2" style="width: 100%;"name="jenis_supplier" id="jenis_supplier">
-                <option disabled value>-- PILIH JENIS SUPPLIER --</option>
-                @foreach ($map as $item)
-                <option value="{{$item->id}}">{{$item->jenis_supplier}}</option>
-                @endforeach
-                </select>
-            </div> --}}
+        <div>
+          <label for="id_customer">Id Supplier </label>
+          <select class="form-control select2" style="width: 100%;"name="id_supplier" id="id_supplier">
+          <option>-- PILIH ID --</option>
+          @foreach ($supplier as $item)
+          <option value="{{$item->id}}">{{$item->nama}}</option>
+          @endforeach
+          </select>
+      </div>
+        <div>
+          <label for="id_keuangan">Id Keuangan </label>
+          <select class="form-control select2" style="width: 100%;"name="id_keuangan" id="id_keuangan">
+          <option>-- PILIH ID --</option>
+          @foreach ($keuangan as $item)
+          <option value="{{$item->id}}">{{$item->jenis_keuangan}}</option>
+          @endforeach
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="nama_pembelian">Nama Pembelian </label>
+        <input class="form-control" type="text" name="nama_pembelian" placeholder="nama" value="{{$dtPembelian->nama_pembelian}}">
+      </div>
+      <div class="form-group">
+        <label for="tgl_pembelian">Tanggal Pembelian </label>
+        <input class="form-control" type="date" name="tgl_pembelian" placeholder="tgl_pembelian" value="{{$dtPembelian->tgl_pembelian}}">
+      </div>
             <button type="submit" class="btn btn-success">Ubah Data</button>
         </form>
    </div>
@@ -267,4 +268,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
-
