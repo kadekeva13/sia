@@ -65,7 +65,8 @@ class PengeluaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $peng = Pengeluaran::find($id);
+        return view('pengeluaran.edit-pengeluaran', compact('peng'));
     }
 
     /**
@@ -77,7 +78,15 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->all());
+        $peng = Pengeluaran::find($id);
+        $peng->tgl_pengeluaran = $request->input('tgl_pengeluaran');
+        $peng->jenis_pengeluaran = $request->input('jenis_pengeluaran');
+        $peng->detail_pengeluaran = $request->input('detail_pengeluaran');
+        $peng->jumlah_pengeluaran = $request->input('jumlah_pengeluaran');
+        // $pem->gender = $request->input('gender');
+        $peng->save();
+        return redirect('halaman-pengeluaran');
     }
 
     /**
@@ -88,6 +97,7 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pengeluaran::destroy($id);
+        return redirect('halaman-pengeluaran');
     }
 }

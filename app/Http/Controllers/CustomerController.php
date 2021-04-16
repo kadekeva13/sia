@@ -15,10 +15,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $dtCustomer = DB::table('customer')->join('gender', 'customer.gender', '=', 'gender.id')
-        ->select('customer.*', 'gender.gender')
-        ->get();
-        //$dtCustomer = Customer::all();
+        // $dtCustomer = DB::table('customer')->join('gender', 'customer.gender', '=', 'gender.id')
+        // ->select('customer.*', 'gender.gender')
+        // ->get();
+        $dtCustomer = Customer::with('gender')->simplePaginate(5);
         //dd($dtCustomer);
         return view('customer.halaman-customer',compact('dtCustomer'));
     }

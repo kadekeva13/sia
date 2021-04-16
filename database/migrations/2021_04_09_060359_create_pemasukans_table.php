@@ -19,7 +19,7 @@ class CreatePemasukansTable extends Migration
             $table->string('jenis_pemasukan');
             $table->string('detail_pemasukan');
             $table->string('jumlah_pemasukan');
-            // $table->string('total');
+            $table->string('total');
             $table->timestamps();
         });
     }

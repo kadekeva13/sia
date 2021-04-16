@@ -200,12 +200,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
    <div class="card-body">
-    <form action="#" method="POST">
+    <form action="{{ url("/pengeluaran/$peng->id") }}" method="POST">
         @method('PATCH')
         @csrf
             <div class="form-group">
-                <label for="tgl_pemasukan">Tanggal </label>
-                <input class="form-control" type="date" name="tgl_pemasukan" value="{{ $pem->tgl_pemasukan }}">
+                <label for="tgl_pengeluaran">Tanggal </label>
+                <input class="form-control" type="date" name="tgl_pengeluaran" value="{{ $peng->tgl_pengeluaran }}">
             </div>
             {{-- <div class="form-group">
               <label for="jenis_pemasukan">Jenis Pemasukan </label>
@@ -215,16 +215,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <option value="{{$item->id}}">{{$item->gender}}</option>
               @endforeach --}}
             <div class="form-group">
-                <label for="jenis_pemasukan">Jenis Pengeluaran</label>
-                <input class="form-control" type="text" name="jenis_pemasukan" placeholder="Jenis Pemasukan" value="{{ $pem->jenis_pemasukan }}">
+                <label for="jenis_pengeluaran">Jenis Pengeluaran</label>
+                <input class="form-control" type="text" name="jenis_pengeluaran" placeholder="Jenis Pengeluaran" value="{{ $peng->jenis_pengeluaran }}">
             </div>
             <div class="form-group">
-              <label for="detail_pemasukan">Detail Pengeluaran </label>
-              <input class="form-control" type="text" name="detail_pemasukan" placeholder="Detail Pemasukan" value="{{ $pem->detail_pemasukan }}">
+              <label for="detail_pengeluaran">Detail Pengeluaran </label>
+              <input class="form-control" type="text" name="detail_pengeluaran" placeholder="Detail Pengeluaran" value="{{ $peng->detail_pengeluaran }}">
             </div>
             <div class="form-group">
-              <label for="jumlah_pemasukan">Jumlah Pengeluaran</label>
-              <input class="form-control" type="text" name="jumlah_pemasukan" placeholder="Jumlah Pemasukan" value="{{ $pem->jumlah_pemasukan }}">
+              <label for="jumlah_pengeluaran">Jumlah Pengeluaran</label>
+              <input class="form-control" type="text" name="jumlah_pengeluaran" placeholder="Jumlah Pengeluaran" value="{{ $peng->jumlah_pengeluaran }}">
             </div>
             <button type="submit" class="btn btn-danger">Simpan</button>
         </form>
