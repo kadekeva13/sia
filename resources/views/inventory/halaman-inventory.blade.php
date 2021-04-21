@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -193,11 +193,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <h1 class="m-0">Inventory</h1>
           </div>
           <!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <a href="#" class="btn btn-success">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
-            </ol>
-          </div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+                 Tambah Data
+          </button>
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -208,35 +207,72 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr class="bg-gradient-warning text-center text-black">
-        <th>No</th>
+      <tr class="bg-gradient-blue text-center text-bold text-white">
+        <th>ID Inventory</th>
         <th>ID Pembelian</th>
         <th>Jenis Inventory</th>
         <th>Detail</th>
         <th colspan="2">Action</th>
       </tr>
-      {{-- @foreach ($supplier as $item)
-          <tr class="bg-gradient-light text-center text-bold">
-            <td>{{ $item->id }}</td>
-            <td>{{ $item->nama }}</td>
-            <td>{{ $item->jenis_supplier }}</td>
-            <td>{{ $item->alamat }}</td>
-            <td>{{ $item->no_telp }}</td>
-            <td>{{ $item->detail }}</td>
+      @foreach ($dtInventory as $item)
+          <tr class="bg-gradient-white text-center text-bold">
+            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ $item->id_pembelian }}</td>
+            <td class="bg-light">{{ $item->jenis_inventory }}</td>
+            <td class="bg-light">{{ $item->detail }}</td>
             <td>
-              <a href="{{url("supplier/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+              <a href="{{url("inventory/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
-              <a href="{{url("supplier/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              <a href="{{url("inventory/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
           </tr>
-      @endforeach     --}}
+      @endforeach    
      </table>
    </div>
+   <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Inventory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('/store-inventory')}}" method="POST">
+          {{ csrf_field() }}
+          <div>
+            <label for="id_supplier">Id Pembelian </label>
+            <select class="form-control select2" style="width: 100%;"name="id_pembelian" id="id_pembelian">
+            <option>-- PILIH ID --</option>
+            @foreach ($pembelian as $item)
+            <option value="{{$item->id}}">{{$item->nama_pembelian}}</option>
+            @endforeach
+            </select>
+        </div>
+         
+            <div class="form-group">
+              <label for="jenis_inventory">Jenis Inventory : </label>
+              <input class="form-control" type="text" name="jenis_inventory">
+          </div>
+              <div class="form-group"> 
+                <label for="detail">Detail </label>
+                <input class="form-control" type="text" name="detail">
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <td class="bg-light">{{ $item->tgl_pengeluaran }}</td>
             <td class="bg-light">{{ $item->jenis_pengeluaran }}</td>
             <td class="bg-light">{{ $item->detail_pengeluaran }}</td>
-            <td class="bg-light">{{ $item->jumlah_pengeluaran }}</td>
+            <td class="bg-light">Rp. {{ number_format($item->jumlah_pengeluaran) }}</td>
             {{-- <td class="bg-light">{{ $item->total }}</td> --}}
             <td>
               <a href="{{url("pengeluaran/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
@@ -234,6 +234,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </tr>
       @endforeach 
      </table>
+     <tr>
+      <td colspan="4" align="right"><strong>Total Harga :</strong></td>
+      <td align="right"><strong>Rp. {{ number_format($jumlah1) }}</strong></td>
+      <td>
+      </td>
+  </tr> 
    </div>
     <!-- /.content -->
   </div>

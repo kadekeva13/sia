@@ -15,10 +15,10 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        // $supplier = DB::table('supplier')->join('jenissupplier', 'supplier.jenis_supplier', '=', 'jenissupplier.id')
-        // ->select('supplier.*', 'jenissupplier.jenis_supplier')
-        // ->get();
-        $supplier = Supplier::with('jenissupplier')->simplePaginate(5);
+        $supplier = DB::table('supplier')->join('jenissupplier', 'supplier.jenis_supplier', '=', 'jenissupplier.id')
+        ->select('supplier.*', 'jenissupplier.jenis_supplier')
+        ->get();
+        // $supplier = Supplier::with('jenissupplier')->simplePaginate(5);
         return view('supplier.halaman-supplier', compact('supplier'));
     }
 

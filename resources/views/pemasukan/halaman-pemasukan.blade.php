@@ -214,16 +214,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <th>Jenis Pemasukkan</th>
         <th>Detail Pemasukkan</th>
         <th>Jumlah Pemasukan</th>
-        <th>Total</th>
         <th colspan="2">Action</th>
       </tr>
+      {{-- $total = 0; --}}
       @foreach ($dtPemasukan as $item)
           <tr class="bg-gradient-white text-center text-bold">
             <td class="bg-light">{{ $item->id }}</td>
             <td class="bg-light">{{ $item->tgl_pemasukan }}</td>
             <td class="bg-light">{{ $item->jenis_pemasukan }}</td>
             <td class="bg-light">{{ $item->detail_pemasukan }}</td>
-            <td class="bg-light">{{ $item->jumlah_pemasukan }}</td>
+            <td class="bg-light">Rp. {{ number_format($item->jumlah_pemasukan) }}</td>
             <td>
               <a href="{{url("pemasukan/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
@@ -232,12 +232,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </td>
           </tr>
       @endforeach  
-      {{-- <tr>
-        <td colspan="5" align="right"><strong>Total Harga :</strong></td>
-        <td align="right"><strong>Rp. {{ number_format($dtPemasukan->total) }}</strong></td>
+      <tr>
+        <td colspan="4" align="center"><strong>Total Harga :</strong></td>
+        <td align="center"><strong>Rp. {{ number_format($jumlah) }}</strong></td>
         <td>
         </td>
-    </tr>   --}}
+    </tr>  
      </table>
    </div>
     <!-- /.content -->

@@ -14,7 +14,12 @@ class PengeluaranController extends Controller
     public function index()
     {
         $dtPengeluaran = Pengeluaran::all();
-        return view('pengeluaran.halaman-pengeluaran',compact('dtPengeluaran'));
+        $jumlah1 = 0;
+        foreach($dtPengeluaran as $total1)
+        {
+            $jumlah1 = $jumlah1 + $total1 -> jumlah_pengeluaran; //tabel yang akan dijumlahkan
+        }
+        return view('pengeluaran.halaman-pengeluaran',compact('dtPengeluaran','jumlah1'));
     }
 
     /**

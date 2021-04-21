@@ -61,7 +61,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::patch('/pembelian/{id}','PembelianController@update');
     route::get('/pembelian/delete/{id}','PembelianController@destroy');
     //CRUD HALAMAN INVENTORY
-    route::get('/halaman-inventory', 'BerandaController@halamaninventory')->name('halaman-inventory');
+    route::get('/halaman-inventory','InventoryController@index')->name('halaman-inventory');
+    route::post('/store-inventory', 'InventoryController@store')->name('simpan-inventory');
+    route::get('/inventory/edit/{id}','InventoryController@edit')->name('edit-inventory');
+    route::patch('/inventory/{id}','InventoryController@update');
+    route::get('/inventory/delete/{id}','InventoryController@destroy');
+   
     //CRUD HALAMAN PEMASUKAN
     route::get('/halaman-pemasukan', 'PemasukanController@index')->name('halaman-pemasukan');
     route::get('/create-pemasukan', 'PemasukanController@create')->name('create-pemasukan');

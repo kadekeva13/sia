@@ -15,7 +15,13 @@ class PemasukanController extends Controller
     public function index()
     {
         $dtPemasukan = Pemasukan::all();
-        return view('pemasukan.halaman-pemasukan', compact('dtPemasukan'));
+        $jumlah = 0;
+        foreach($dtPemasukan as $total)
+        {
+            $jumlah = $jumlah + $total -> jumlah_pemasukan; //tabel yang akan dijumlahkan
+        }
+        // dd($jumlah);
+        return view('pemasukan.halaman-pemasukan', compact('dtPemasukan','jumlah'));
     }
 
     /**
@@ -42,7 +48,7 @@ class PemasukanController extends Controller
             'jenis_pemasukan'=>$request->jenis_pemasukan,
             'detail_pemasukan'=>$request->detail_pemasukan,
             'jumlah_pemasukan'=>$request->jumlah_pemasukan,
-            // 'total'=>$request->total,
+            'total'=>$request->total,
         ]);
         return redirect('halaman-pemasukan');
     }
