@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image" height="100%" weight="100%">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -190,7 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Data Buku Besar</h1>
+            <h1 class="m-0">Edit Data Akun</h1>
           </div>
         </div>
         <!-- /.row -->
@@ -200,43 +200,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
    <div class="card-body">
-    <form action="#" method="POST">
+    <form action="{{ url("/akun/$akun->id") }}" method="POST">
+        @method('PATCH')
         @csrf
-            <div class="form-group">
-                <label for="gender">ID Keuangan</label>
-                <select class="form-control select2" style="width: 100%;"name="gender" id="gender">
-                <option>-- PILIH ID Keuangan--</option>
-                {{-- @foreach ($map as $item)
-                <option value="{{$item->id}}">{{$item->gender}}</option>
-                @endforeach --}}
+       
+        
+        <div>
+            <label for="jenis_akun">Jenis Akun </label>
+            <select class="form-control select2" style="width: 100%;"name="jenis_akun" id="jenis_akun">
+            <option>-- PILIH JENIS AKUN --</option>
+            @foreach ($jenisakun as $item)
+            <option value="{{$item->id}}">{{$item->jenis_akun}}</option>
+            @endforeach
             </select>
-            </div>
-            <div class="form-group">
-                <label for="gender">ID Laporan</label>
-                <select class="form-control select2" style="width: 100%;"name="gender" id="gender">
-                <option>-- PILIH ID Keuangan--</option>
-                {{-- @foreach ($map as $item)
-                <option value="{{$item->id}}">{{$item->gender}}</option>
-                @endforeach --}}
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="notelp">Nama Akun</label>
-              <input class="form-control" type="text" name="notelp" placeholder="No.telpon">
-            </div>
-            .<div class="form-group">
-              <label for="alamat">Keterangan</label>
-              <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="alamat">Debit</label>
-                <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-              <div class="form-group">
-                <label for="alamat">Kredit</label>
-                <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-            <button type="submit" class="btn btn-danger">Simpan</button>
+        </div>
+      <div class="form-group">
+        <label for="nama">Nama</label>
+        <input class="form-control" type="text" name="nama" placeholder="nama" value="{{$akun->nama}}">
+      </div>
+      <div class="form-group">
+        <label for="detail">Detail</label>
+        <input class="form-control" type="text" name="detail" placeholder="detail" value="{{$akun->detail}}">
+      </div>
+            <button type="submit" class="btn btn-success">Ubah Data</button>
         </form>
    </div>
     <!-- /.content -->

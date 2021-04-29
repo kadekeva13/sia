@@ -190,12 +190,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Customer</h1>
+            <h1 class="m-0">Buku Besar</h1>
           </div>
           <!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{route('create-customer')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
+              <a href="#" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
           </div>
           <!-- /.col -->
@@ -209,18 +209,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <div class="card-body">
      <table class="table table-bordered">
       <tr class="bg-gradient-cyan text-center text-bold">
-        <th>No</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>No.Telp</th>
-        <th>Alamat</th>
-        <th>Gender</th>
+        <th>ID Keuangan</th>
+        <th>ID Laporan</th>
+        <th>Nama Akun</th>
+        <th>Keterangan</th>
+        <th>Debit</th>
+        <th>Kredit</th>
         <th colspan="2">Action</th>
       </tr>
       @php 
       $i=0;
       @endphp
-      @foreach ($dtCustomer as $item)
+      {{-- @foreach ($dtCustomer as $item)
           <tr class="bg-gradient-white text-center text-bold">
             <td class="bg-light">{{ ++$i }}</td>
             <td class="bg-light">{{ $item->nama }}</td>
@@ -235,7 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="{{url("customer/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
           </tr>
-      @endforeach    
+      @endforeach     --}}
      </table>
      {{-- {{$dtCustomer->links()}} --}}
    </div>

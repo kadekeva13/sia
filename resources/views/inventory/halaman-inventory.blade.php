@@ -214,9 +214,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <th>Detail</th>
         <th colspan="2">Action</th>
       </tr>
+      @php 
+      $a=0;
+      @endphp
       @foreach ($dtInventory as $item)
           <tr class="bg-gradient-white text-center text-bold">
-            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ ++$a  }}</td>
             <td class="bg-light">{{ $item->id_pembelian }}</td>
             <td class="bg-light">{{ $item->jenis_inventory }}</td>
             <td class="bg-light">{{ $item->detail }}</td>

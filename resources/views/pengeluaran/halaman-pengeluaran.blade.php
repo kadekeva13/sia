@@ -217,9 +217,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         {{-- <th>Total</th> --}}
         <th colspan="2">Action</th>
       </tr>
+      @php 
+      $i=0;
+      @endphp
         @foreach ($dtPengeluaran as $item)
           <tr class="bg-gradient-white text-center text-bold">
-            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ ++$i}}</td>
             <td class="bg-light">{{ $item->tgl_pengeluaran }}</td>
             <td class="bg-light">{{ $item->jenis_pengeluaran }}</td>
             <td class="bg-light">{{ $item->detail_pengeluaran }}</td>

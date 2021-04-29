@@ -74,7 +74,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-akun')}}" class="nav-link">
                   <i class="fa fa-balance-scale"></i>
                   <p>Akun</p>
                 </a>

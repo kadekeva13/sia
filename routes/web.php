@@ -66,7 +66,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/inventory/edit/{id}','InventoryController@edit')->name('edit-inventory');
     route::patch('/inventory/{id}','InventoryController@update');
     route::get('/inventory/delete/{id}','InventoryController@destroy');
-   
     //CRUD HALAMAN PEMASUKAN
     route::get('/halaman-pemasukan', 'PemasukanController@index')->name('halaman-pemasukan');
     route::get('/create-pemasukan', 'PemasukanController@create')->name('create-pemasukan');
@@ -81,6 +80,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/pengeluaran/edit/{id}','PengeluaranController@edit')->name('edit-pengeluaran');
     route::patch('/pengeluaran/{id}','PengeluaranController@update');
     route::get('/pengeluaran/delete/{id}','PengeluaranController@destroy');
+    //CRUD HALAMAN AKUN 
+    route::get('/halaman-akun','AkunController@index')->name('halaman-akun');
+    route::post('/store-akun', 'AkunController@store')->name('simpan-akun');
+    route::get('/akun/edit/{id}','AkunController@edit')->name('edit-akun');
+    route::patch('/akun/{id}','AkunController@update');
+    route::get('/akun/delete/{id}','AkunController@destroy');
 
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
