@@ -80,7 +80,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('halaman-bukubesar')}}" class="nav-link">
                   <i class="fa fa-address-card"></i>
                   <p>Buku Besar</p>
                 </a>

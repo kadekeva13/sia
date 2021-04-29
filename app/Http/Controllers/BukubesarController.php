@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BerandaController extends Controller
+class BukubesarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,48 +13,9 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.beranda');
+        //
     }
-    public function halamandashboard()
-    {
-        return view('halaman.halaman-dashboard');
-    }
-    public function halamancustomer()
-    {
-        return view('customer.halaman-customer');
-    }
-    public function halamansupplier()
-    {
-        return view('supplier.halaman-supplier');
-    }
-    public function halamanpembelian()
-    {
-        return view('pembelian.halaman-pembelian');
-    }
-    public function halamanpenjualan()
-    {
-        return view('penjualan.halaman-penjualan');
-    }
-    public function halamanprofile()
-    {
-        return view('profil.halaman-profile');
-    }
-    public function halamaninventory()
-    {
-        return view('inventory.halaman-inventory');
-    }
-    public function halamanpemasukan()
-    {
-        return view('pemasukan.halaman-pemasukan');
-    }
-    public function halamanpengeluaran()
-    {
-        return view('pengeluaran.halaman-pengeluaran');
-    }
-    public function halamanbukubesar()
-    {
-        return view('bukubesar.halaman-bukubesar');
-    }
+
     /**
      * Show the form for creating a new resource.
      *

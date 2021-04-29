@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::get('/akun/edit/{id}','AkunController@edit')->name('edit-akun');
     route::patch('/akun/{id}','AkunController@update');
     route::get('/akun/delete/{id}','AkunController@destroy');
+    //CRUD HALAMAN BUKU BESAR
+    route::get('/halaman-bukubesar','BerandaController@halamanbukubesar')->name('halaman-bukubesar');
 
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
