@@ -187,17 +187,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
+        <a class="btn btn-info shadow" style="width:50px; margin-top:20px; margin-left:25px;" href=" /cetak-bukubesar-print "><i class="fas fa-print"></i></a>
+
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Buku Besar</h1>
           </div>
           <!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <a href="{{route('create-bukubesar')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
-          </div>
+          </div> --}}
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -216,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <th>Keterangan</th>
         <th>Debit</th>
         <th>Kredit</th>
-        <th colspan="2">Action</th>
+    
       </tr>
       @php 
       $i=0;
@@ -230,12 +232,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <td class="bg-light">{{ $item->keterangan }}</td>
             <td class="bg-light">{{ $item->debit }}</td>
             <td class="bg-light">{{ $item->kredit }}</td>
-            <td>
+            {{-- <td>
               <a href="{{url("bukubesar/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
               <a href="{{url("bukubesar/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-          </td>
+          </td> --}}
           </tr>
       @endforeach
       <tr>

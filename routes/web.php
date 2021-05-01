@@ -24,7 +24,7 @@ Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
-    //Halaman Beranda
+    // //Halaman Beranda
     route::get('/beranda','BerandaController@index')->name('beranda');
     //Halaman Dashboard
     route::get('/halaman-dashboard', 'BerandaController@halamandashboard')->name('halaman-dashboard');
@@ -87,7 +87,21 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){
     route::patch('/akun/{id}','AkunController@update');
     route::get('/akun/delete/{id}','AkunController@destroy');
     //CRUD HALAMAN BUKU BESAR
-    route::get('/halaman-bukubesar','BerandaController@halamanbukubesar')->name('halaman-bukubesar');
+    route::get('/halaman-bukubesar', 'BukubesarController@index')->name('halaman-bukubesar');
+    route::get('/create-bukubesar', 'BukubesarController@create')->name('create-bukubesar');
+    route::post('/store-bukubesar', 'BukuBesarController@store')->name('simpan-bukubesar');
+    route::get('/bukubesar/edit/{id}','BukuBesarController@edit')->name('edit-bukubesar');
+    route::patch('/bukubesar/{id}','BukuBesarController@update');
+    route::get('/bukubesar/delete/{id}','BukuBesarController@destroy');
+    //LAPORAN
+    route::get('/cetak-penjualan','AdminController@laporan_penjualan')->name('cetak-penjualan');
+    route::get('/cetak-penjualan-print','AdminController@laporan_penjualan_print')->name('cetak-penjualan-print');
+    route::get('/cetak-pembelian','AdminController@laporan_pembelian')->name('cetak-pembelian');
+    route::get('/cetak-pembelian-print','AdminController@laporan_pembelian_print')->name('cetak-pembelian-print');
+    route::get('/cetak-pemasukan','AdminController@laporan_pemasukan')->name('cetak-pemasukan');
+    route::get('/cetak-pemasukan-print','AdminController@laporan_pemasukan_print')->name('cetak-pemasukan-print');
+    route::get('/cetak-bukubesar','AdminController@laporan_bukubesar')->name('cetak-bukubesar');
+    route::get('/cetak-bukubesar-print','AdminController@laporan_bukubesar_print')->name('cetak-bukubesar-print');
 
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin,pimpinan']], function(){

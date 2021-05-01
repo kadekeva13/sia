@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -190,14 +190,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Buku Besar</h1>
+            <h1 class="m-0">Pemasukkan</h1>
           </div>
           <!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <a href="{{route('create-bukubesar')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
+              <a href="{{route('create-pemasukan')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </ol>
-          </div>
+          </div> --}}
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -208,49 +208,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr class="bg-gradient-cyan text-center text-bold">
+        <a class="btn btn-info shadow" style="width:50px; margin-top:20px; margin-left:25px;" href=" /cetak-pemasukan-print "><i class="fas fa-print"></i></a>
+
+      <tr class="bg-gradient-purple text-center text-bold">
         <th>No</th>
-        <th>ID Keuangan</th>
-        <th>ID Laporan</th>
-        <th>Jenis Akun</th>
-        <th>Keterangan</th>
-        <th>Debit</th>
-        <th>Kredit</th>
-        <th colspan="2">Action</th>
+        <th>Tanggal</th>
+        <th>Jenis Pemasukkan</th>
+        <th>Detail Pemasukkan</th>
+        <th>Jumlah Pemasukan</th>
       </tr>
       @php 
       $i=0;
       @endphp
-      @foreach ($dtBubes as $item)
+      {{-- $total = 0; --}}
+      @foreach ($dtPemasukan as $item)
           <tr class="bg-gradient-white text-center text-bold">
             <td class="bg-light">{{ ++$i }}</td>
-            <td class="bg-light">{{ $item->id_keuangan }}</td>
-            <td class="bg-light">{{ $item->id_laporan }}</td>
-            <td class="bg-light">{{ $item->nama }}</td>
-            <td class="bg-light">{{ $item->keterangan }}</td>
-            <td class="bg-light">{{ $item->debit }}</td>
-            <td class="bg-light">{{ $item->kredit }}</td>
-            <td>
-              <a href="{{url("bukubesar/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-          </td>
-          <td>
-              <a href="{{url("bukubesar/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-          </td>
+            <td class="bg-light">{{ $item->tgl_pemasukan }}</td>
+            <td class="bg-light">{{ $item->jenis_pemasukan }}</td>
+            <td class="bg-light">{{ $item->detail_pemasukan }}</td>
+            <td class="bg-light">Rp. {{ number_format($item->jumlah_pemasukan) }}</td>
+           
           </tr>
-      @endforeach
+      @endforeach  
       <tr>
-        <td colspan="5" align="center"><strong>Total Harga :</strong></td>
+        <td colspan="4" align="center"><strong>Total Harga :</strong></td>
         <td align="center"><strong>Rp. {{ number_format($jumlah) }}</strong></td>
-        <td align="center"><strong>Rp. {{ number_format($jumlah1) }}</strong></td>
-    </tr> 
-     {{-- <tr>
-      <td colspan="5" align="center"><strong>Total Harga :</strong></td>
-      
-      <td>
-      </td>
-  </tr>      --}}
+        <td>
+        </td>
+    </tr>  
      </table>
-     {{-- {{$dtCustomer->links()}} --}}
    </div>
     <!-- /.content -->
   </div>
@@ -288,3 +275,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
+
+

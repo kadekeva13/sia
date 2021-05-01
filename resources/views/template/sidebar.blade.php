@@ -85,11 +85,40 @@
                   <p>Buku Besar</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-file"></i>
-                  <p>Laporan</p>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-university"></i>
+                  <p>
+                    Laporan
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('cetak-penjualan')}}" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Laporan Penjualan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('cetak-pembelian')}}" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Laporan Pembelian</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('cetak-pemasukan')}}" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Laporan Pemasukkan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('cetak-bukubesar')}}" class="nav-link">
+                    <i class="fa fa-credit-card"></i>
+                    <p>Laporan Buku Besar</p>
+                  </a>
+                </li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a href="{{route('password.edit')}}" class="nav-link">

@@ -164,7 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{asset('Gambar/users.png')}}"class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{route('halaman-profile')}}" class="d-block">{{auth()->user()->name}}</a>
+          <a href="#" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
 
@@ -190,14 +190,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Buku Besar</h1>
+            <h1 class="m-0">Cetak Pembelian</h1>
           </div>
           <!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <a href="{{route('create-bukubesar')}}" class="btn btn-primary">Tambah Data <i class="fa fa-plus-square" aria-hidden="true"></i></a>
-            </ol>
-          </div>
+          <!-- Button trigger modal -->
+          {{-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+                 Tambah Data
+          </button> --}}
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -208,54 +207,83 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
    <div class="card-body">
      <table class="table table-bordered">
-      <tr class="bg-gradient-cyan text-center text-bold">
-        <th>No</th>
+        <a class="btn btn-info shadow" style="width:50px; margin-top:20px; margin-left:25px;" href=" /cetak-pembelian-print "><i class="fas fa-print"></i></a>
+
+      <tr class="bg-gradient-blue text-center text-bold text-white">
+        <th>ID Pembelian</th>
+        <th>ID Supplier</th>
         <th>ID Keuangan</th>
-        <th>ID Laporan</th>
-        <th>Jenis Akun</th>
-        <th>Keterangan</th>
-        <th>Debit</th>
-        <th>Kredit</th>
-        <th colspan="2">Action</th>
+        <th>Tanggal Pembelian</th>
+        <th>Nama Pembelian</th>
       </tr>
-      @php 
-      $i=0;
-      @endphp
-      @foreach ($dtBubes as $item)
+      @foreach ($dtPembelian as $item)
           <tr class="bg-gradient-white text-center text-bold">
-            <td class="bg-light">{{ ++$i }}</td>
+            <td class="bg-light">{{ $item->id }}</td>
+            <td class="bg-light">{{ $item->id_supplier }}</td>
             <td class="bg-light">{{ $item->id_keuangan }}</td>
-            <td class="bg-light">{{ $item->id_laporan }}</td>
-            <td class="bg-light">{{ $item->nama }}</td>
-            <td class="bg-light">{{ $item->keterangan }}</td>
-            <td class="bg-light">{{ $item->debit }}</td>
-            <td class="bg-light">{{ $item->kredit }}</td>
+            <td class="bg-light">{{ $item->tgl_pembelian }}</td>
+            <td class="bg-light">{{ $item->nama_pembelian }}</td>
             <td>
-              <a href="{{url("bukubesar/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+              {{-- <a href="{{url("pembelian/edit/$item->id")}}" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
           </td>
           <td>
-              <a href="{{url("bukubesar/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
-          </td>
+              <a href="{{url("pembelian/delete/$item->id")}}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          </td> --}}
           </tr>
-      @endforeach
-      <tr>
-        <td colspan="5" align="center"><strong>Total Harga :</strong></td>
-        <td align="center"><strong>Rp. {{ number_format($jumlah) }}</strong></td>
-        <td align="center"><strong>Rp. {{ number_format($jumlah1) }}</strong></td>
-    </tr> 
-     {{-- <tr>
-      <td colspan="5" align="center"><strong>Total Harga :</strong></td>
-      
-      <td>
-      </td>
-  </tr>      --}}
+      @endforeach    
      </table>
-     {{-- {{$dtCustomer->links()}} --}}
    </div>
+   <!-- Modal -->
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penjualan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{url('/store-pembelian')}}" method="POST">
+          {{ csrf_field() }}
+          <div>
+            <label for="id_supplier">Id Supplier </label>
+            <select class="form-control select2" style="width: 100%;"name="id_supplier" id="id_supplier">
+            <option>-- PILIH ID --</option>
+            @foreach ($supplier as $item)
+            <option value="{{$item->id}}">{{$item->nama}}</option>
+            @endforeach
+            </select>
+        </div>
+          <div>
+            <label for="id_keuangan">Id Keuangan </label>
+            <select class="form-control select2" style="width: 100%;"name="id_keuangan" id="id_keuangan">
+            <option>-- PILIH ID --</option>
+            @foreach ($keuangan as $item)
+            <option value="{{$item->id}}">{{$item->jenis_keuangan}}</option>
+            @endforeach
+            </select>
+        </div>
+            <div class="form-group">
+              <label for="nama_pembelian">Nama Pembelian : </label>
+              <input class="form-control" type="text" name="nama_pembelian">
+          </div>
+              <div class="form-group"> 
+                <label for="tgl_pembelian">Tanggal Pembelian </label>
+                <input class="form-control" type="date" name="tgl_pembelian">
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+      </div>
+    </div>
+  </div>
+</div> --}}
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -288,3 +316,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
+
+

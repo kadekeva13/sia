@@ -208,36 +208,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Online Store Visitors</h3>
-                  <a href="javascript:void(0);">View Report</a>
+                  <h3 class="card-title">Penjualan</h3>
+                  <a href="javascript:void(0);">Data Penjualan</a>
                 </div>
               </div>
               <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
-                    <span class="text-muted">Since last week</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-
+                
                 <div class="position-relative mb-4">
                   <canvas id="visitors-chart" height="200"></canvas>
                 </div>
 
                 <div class="d-flex flex-row justify-content-end">
                   <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
+                    <i class="fas fa-square text-primary"></i> Bulan Ini
                   </span>
 
                   <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
+                    <i class="fas fa-square text-gray"></i> Bulan Kemarin
                   </span>
                 </div>
               </div>
@@ -246,14 +233,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="card">
               <div class="card-header border-0">
-                <h3 class="card-title">Products</h3>
+                <h3 class="card-title">Laporan</h3>
                 <div class="card-tools">
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-download"></i>
-                  </a>
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-bars"></i>
-                  </a>
                 </div>
               </div>
               <div class="card-body table-responsive p-0">
@@ -355,8 +336,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales</h3>
-                  <a href="javascript:void(0);">View Report</a>
+                  <h3 class="card-title">Penjualan</h3>
+                  <a href="javascript:void(0);">Laporan Penjualan</a>
                 </div>
               </div>
               <div class="card-body">
@@ -393,7 +374,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="card">
               <div class="card-header border-0">
-                <h3 class="card-title">Online Store Overview</h3>
+                <h3 class="card-title">Daftar Customer</h3>
                 <div class="card-tools">
                   <a href="#" class="btn btn-sm btn-tool">
                     <i class="fas fa-download"></i>
@@ -409,10 +390,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="ion ion-ios-refresh-empty"></i>
                   </p>
                   <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-success"></i> 12%
-                    </span>
-                    <span class="text-muted">CONVERSION RATE</span>
+                    <span class="text-muted">Fatan</span>
                   </p>
                 </div>
                 <!-- /.d-flex -->
@@ -421,10 +399,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="ion ion-ios-cart-outline"></i>
                   </p>
                   <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
-                    </span>
-                    <span class="text-muted">SALES RATE</span>
+                    <span class="text-muted">aaa</span>
                   </p>
                 </div>
                 <!-- /.d-flex -->
@@ -433,10 +408,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="ion ion-ios-people-outline"></i>
                   </p>
                   <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-down text-danger"></i> 1%
-                    </span>
-                    <span class="text-muted">REGISTRATION RATE</span>
+                    <span class="text-muted">Asmiati</span>
                   </p>
                 </div>
                 <!-- /.d-flex -->

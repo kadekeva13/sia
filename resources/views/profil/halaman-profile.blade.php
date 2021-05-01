@@ -232,7 +232,7 @@
                   </li>
                 </ul>
 
-                <a href="{{route('edit-profile')}}" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                {{-- <a href="{{route('edit-profile')}}" class="btn btn-primary btn-block"><b>Edit Profile</b></a> --}}
               </div>
               <!-- /.card-body -->
             </div>
